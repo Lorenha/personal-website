@@ -1,0 +1,232 @@
+body{
+    overflow:hidden
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+    not supported by any browser */
+}
+
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+
+.col-sm-4{
+    height:33.3333333333vh;
+    width: 33.7vw;
+    line-height: 33vh;
+    text-align:center;
+}
+
+.col-sm-4 .front{
+    background-size:cover;
+    background-repeat:no-repeat;
+    box-shadow:inset 0px 0px 10px white;
+    -moz-box-shadow:inset 0px 0px 10px white;
+    -webkit-box-shadow:inset 0px 0px 10px white;
+    -o-transition:box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -ms-transition:box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -moz-transition:box-shadow .2s ease-out, box-shadow .1s ease-in;
+    -webkit-transition:box-shadow .2s ease-out, box-shadow .1s ease-in;
+    transition:box-shadow .2s ease-out, box-shadow .1s ease-in;
+}
+
+.col-sm-4 .front:hover{
+    box-shadow:inset 0px 0px 120px white;
+    -moz-box-shadow:inset 0px 0px 120px white;
+    -webkit-box-shadow:inset 0px 0px 120px white;
+/*    opacity: 0.4;*/
+    background-color: darkgrey;
+}
+
+.col-sm-4 .back{
+    background-color:lightgrey;
+}
+
+.col-sm-4 i{
+    display: inline-block;
+    vertical-align:middle;
+    line-height:normal;
+    
+    font-size: 200px;
+    color: lightgrey;
+    position: flex;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+.propic .front{
+    background-image:url("linkedin_propic.jpg");
+}
+.welcome .front{
+    background-image:url("times-square.jpg");
+}
+.skills .front{
+    background-image:url("san-francisco-skyscrapers.jpg");
+}
+.projects .front{
+    background-image:url("escalator.jpg");  
+}
+.experience .front{
+    background-image:url("stairs.jpg");
+}
+.education .front{
+    background-image:url("sign.jpg");
+}
+.references .front{
+    background-image:url("urban.jpg");
+}
+.contact .front{
+    background-image:url("street.jpg");
+}
+.resources .front{
+    background-image:url("niteroi.jpg");
+}
+
+.propic a{
+    font-size: 12px;
+    height:100%;
+    width:100%;
+}
+
+.welcome h1{
+    
+    display: inline-block;
+    vertical-align:middle;
+    line-height:normal;
+    
+    color: lightgrey; 
+    font-size: 50px;
+    text-align: center;
+/*    margin-top: 75px;*/
+    font-family: "Century Gothic";
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+.hover-text{
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    font-family: "Century Gothic";
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    position: relative;
+    opacity: 1;
+}
+
+.hidden{
+    display:none;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;    
+    
+}
+
+.flip-container {
+    perspective: 100vw;
+    transform-style:preserve-3d;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+       
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    
+    
+}
+/* back, initially hidden pane */
+.back {
+    z-index: 0;
+    
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+}
+
+.flip-container.flip .back {
+    transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);   
+}
+
+.flip-container.flip .front {
+    transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+/* flip the pane when hovered */
+.flip-container.flip .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+    transform: rotateY(180deg) scaleY(2) scaleX(2);
+    -moz-transform: rotateY(180deg) scaleY(2) scaleX(2);
+    -o-transform: rotateY(180deg) scaleY(2) scaleX(2);
+    -webkit-transform: rotateY(180deg) scaleY(2) scaleX(2);
+    
+    z-index:10;
+    
+    transition: transform 0.6s ease;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    -webkit-transition:0.6s;
+    -mos-transition:0.6s;
+    -o-transition:0.6s;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    position: relative;
+    
+    transform:  scaleY(1) scaleX(1);
+    -moz-transform: scaleY(1) scaleX(1);
+    -o-transform: scaleY(1) scaleX(1);
+    -webkit-transform: scaleY(1) scaleX(1);
+    
+    transition: transform 0.6s ease;
+
+}
+
+.flip-container, .front, .back {
+    width: inherit;
+    height: inherit;
+    
+   
+    
+}
+
+
+
+
+
